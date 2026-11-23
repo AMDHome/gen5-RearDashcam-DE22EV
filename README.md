@@ -1,5 +1,11 @@
 # Rear Dashcam for Gen5W head units (Without 360 View)
 
+This is a personal build for the 2022 Kia Niro EV. I don't care too much about the dashcam part but I really want the rearview mirror portion. One day I might merge my changes upstream if kramer decides it a good idea but for now im just building for personal use. I anticipate I will be making significant design changes to where merging isn't easily possible but we'll see. If for some reason you decide to trust a shady man on the interwebs and want my build for it. Well... It's not ready yet at the time of writing 11/22/2026. But you are more than welcome to find me on the Gen5W Server and send me a DM expressing intrest. Just make sure you actually explain where you are from instead of just saying hey or hi. I usually delete those messages. 
+
+Anyways anything below this line is part of the origional readme. 
+
+---
+
 Turns your backup camera into a dashcam for the Hyundai IONIQ 5 and Kia EV6 with the Gen5W head unit. It records to a USB drive whenever the car is on, and a **Dashcam** app lets you watch the recordings on the car's screen.
 
 > [!IMPORTANT]
