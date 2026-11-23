@@ -20,10 +20,10 @@ model=${model%/}
 model=${model##*/}
 log "preinstall: model ${model:-unknown}"
 case "$model" in
-    neev*|cvev*) ;;
+    neev*|cvev*|de22ev*) ;;
     *)
-        toast "Rear Dashcam: only supported on the IONIQ 5 and EV6 (this car: ${model:-unknown})"
-        log "preinstall: refused, not an IONIQ 5/EV6"
+        toast "Rear Dashcam: only supported on IONIQ 5, EV6, and 2022 Kia Niro EV (this car: ${model:-unknown})"
+        log "preinstall: refused, not an IONIQ 5/EV6 or 2022 Niro EV"
         exit 1
         ;;
 esac

@@ -58,7 +58,13 @@ final class RearCam {
         k.setAccessible(true);
         Object c = k.newInstance();
         set(t, c, "mCameraId", id);
-        Constructor<?> handler = Class.forName(CLASS + "$EventHandler_").getDeclaredConstructor(t, t, Looper.class);
+
+        String handlerName;
+        switch (Model.CURRENT) {
+            case DE22EV: handlerName = "$EventHandler"; break;
+            default:     handlerName = "$EventHandler_"; break;  // IONIQ 5, EV6
+        }
+        Constructor<?> handler = Class.forName(CLASS + handlerName).getDeclaredConstructor(t, t, Looper.class);
         handler.setAccessible(true);
         set(t, c, "mEventHandler", handler.newInstance(c, c, Looper.myLooper()));
         long t0 = SystemClock.uptimeMillis();
@@ -70,7 +76,8 @@ final class RearCam {
             throw e;
         }
         Log.i("camera " + id + ": native_setup " + (SystemClock.uptimeMillis() - t0) + " ms");
-        set(t, c, "initialized", true);
+        if (Model.CURRENT != Model.DE22EV)
+            set(t, c, "initialized", true);  // DE22EV's RearCamera has no such flag and thus should not run this line.
         RearCam cam = new RearCam(t, c);
         try {
             Class<?> callback = Class.forName(CLASS + "$ErrorCallback");
